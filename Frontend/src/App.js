@@ -60,6 +60,9 @@ class App extends React.Component{
     this.setState({ fuel: e.target.value });
   }
 
+  clear=(e)=>{
+    this.setState({output:''})
+  }
   handleSubmit =(e) =>{
     e.preventDefault();
     let fields = {
@@ -210,12 +213,19 @@ class App extends React.Component{
                     <div className="modal-content">
                       <div className="modal-header">
                         <h5 class="modal-title" id="exampleModalCenterTitle">Estimated Price</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={this.clear}>
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        {this.state.output}
+                        {this.state.output.length===0?
+                        <div className="text-center">
+                        <div className="spinner-border" role="status">
+                          <span className="sr-only">Loading...</span>
+                        </div>
+                      </div>
+                        :<div>{this.state.output}</div>}
+                        
                       </div>
                     </div>
                   </div>
