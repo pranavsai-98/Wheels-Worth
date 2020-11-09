@@ -71,7 +71,7 @@ class App extends React.Component{
       'seller_type'   : this.state.seller,
       'fuel'          : this.state.fuel
     }
-    axios.post("http://127.0.0.1:5000/predict_car_price",fields)
+    axios.post("http://18.222.173.66:8000/predict_car_price",fields)
     .then((response) => {
       if(response){ 
         this.setState({output:response.data.estimated_price})
