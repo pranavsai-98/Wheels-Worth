@@ -37,4 +37,4 @@ if __name__=="__main__":
     print("starting python flask server for car price prediction")
     util.load_saved_artifacts()
     print(util.get_car_names())
-    app.run()
+    app.run(host='0.0.0.0',port=8000)
